@@ -28,9 +28,10 @@ class HomeController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function Index()
 	{
-		return view('home');
+		return view('user.dashboard');
 	}
+
 
 }
