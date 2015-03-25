@@ -1,6 +1,7 @@
 <?php namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Session;
 
 class StoreUserPostRequest extends Request {
 
@@ -11,7 +12,9 @@ class StoreUserPostRequest extends Request {
 	 */
 	public function authorize()
 	{
-		return false;
+		Session::reflash();
+
+		return true;
 	}
 
 	/**
@@ -22,10 +25,9 @@ class StoreUserPostRequest extends Request {
 	public function rules()
 	{
 		return [
-			'name'=>'required|min:6|unique:users',
+			'name'=>'required|alpha_dash|min:6|unique:users',
 			'email'=>'required|email|unique:users',
-			'password'=>'required|min:6',
-			'repassword'=>'required|min:6',
+			'password'=>'required|min:6|confirmed',
 			'qq'=>'sometimes|numeric'
 		];
 	}

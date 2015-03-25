@@ -1,5 +1,5 @@
 <?php namespace App\Http\Controllers;
-
+use Auth;
 class HomeController extends Controller {
 
 	/*
@@ -30,6 +30,10 @@ class HomeController extends Controller {
 	 */
 	public function Index()
 	{
+		$user=Auth::user();
+		if($user->is_admin==1){
+			return redirect('admin');
+		}
 		return view('user.dashboard');
 	}
 

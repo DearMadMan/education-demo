@@ -1,13 +1,13 @@
 <?php namespace App\Lib;
 /**
- * Captcha.class.php
+ * Captcha.php
  * Captcha code
  * 验证码类
  * 验证码宽高接口
  * session命名接口
  * 简单验证or中文验证码
  * 字符数量接口
- * 干扰线个数接口(水平线 斜线)
+ * 干扰线个数(水平线 斜线)
  * 干扰点个数接口
  * 格式封装(jpg,gif,png) 默认 jpg
  * $font_name 需要根据页面地址来寻找 比如打开index.php　那么当前路径是index.php
@@ -77,6 +77,9 @@ class Captcha
 	}
 
 
+	/**
+	 *
+     */
 	public  static function PushImage(){
 		self::InsertHeader();
 
@@ -97,6 +100,11 @@ class Captcha
 
 		imagedestroy(self::$img);
 	}
+
+	/**
+	 * 获取验证码字符串
+	 * @return string
+     */
 	public static function GetCaptchaString(){
 		return self::$captcha_string;
 	}
@@ -113,6 +121,11 @@ class Captcha
 			imageline($img, rand(0,ceil(self::$width/2)), 0, rand(ceil(self::$width/2),self::$width), self::$height, $font_color);
 		}
 	}
+
+	/**
+	 * 加入干扰点
+	 * @param $img
+     */
 	public static function CreatePixel($img)
 	{
 		for($i=0;$i<self::$pixel;$i++)

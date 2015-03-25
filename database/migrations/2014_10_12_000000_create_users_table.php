@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration {
 			$table->string('nick_name',30);
 			$table->string('password', 60);
 			$table->string('repassword',60);
-			$table->integer('user_type_id');
+			$table->integer('user_type_id')->default(1);
 			$table->string('qq',20);
 			$table->string('address');
 			$table->string('phone',20);
@@ -28,7 +28,8 @@ class CreateUsersTable extends Migration {
 			$table->string('alipay',20);
 			$table->integer('parent_id');
 			$table->integer('score');
-			$table->integer('is_admin');
+			$table->integer('msg_number')->default(0);
+			$table->integer('is_admin')->default(0);
 			$table->rememberToken();
 			$table->timestamps();
 		});

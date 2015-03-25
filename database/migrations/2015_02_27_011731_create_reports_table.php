@@ -16,7 +16,7 @@ class CreateReportsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('user_id');
-			$table->string('wechat');
+ 			$table->string('wechat');
 			$table->string('qq');
 			$table->string('phone');
 			$table->string('case');

@@ -16,9 +16,12 @@ class CreateUserTypesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('type_name',20);
-			$table->integer('is_disabled');
+			$table->integer('is_disabled')->default(0);
 //			$table->timestamps();
 		});
+
+
+
 	}
 
 	/**

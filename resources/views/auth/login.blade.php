@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="container-fluid">
-		<img class="img-responsive" src="../images/123.jpg" alt="responsive image"/>
+		<a href="{{$config->pic_1_a}}">	<img class="img-responsive" src="{{url('/').'/'.$config->pic_1}}" alt="responsive image"/></a>
 	</div>
 <div class="container-fluid">
 	<div class="row">
@@ -66,7 +66,7 @@
 									登录
 								</button>
 
-								<a href="/password/email">忘记密码?</a>
+								<a href="/home/password">忘记密码?</a>
 							</div>
 						</div>
 					</form>
